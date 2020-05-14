@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="589bfdf1-27ae-41a1-a092-d2a15bda26fd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/controller/testadd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/controller/testadd2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/server/entity/testadd.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +138,7 @@
       <workItem from="1588812592504" duration="1232000" />
       <workItem from="1588814334264" duration="2053000" />
       <workItem from="1589462821083" duration="194000" />
-      <workItem from="1589463143500" duration="755000" />
+      <workItem from="1589463143500" duration="1136000" />
     </task>
     <task id="LOCAL-00001" summary="加入两个测试类testadd testadd">
       <created>1589463274160</created>
@@ -152,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589463404502</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="idea回滚到测试前">
+      <created>1589464067409</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1589464067409</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,17 +213,18 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="加入两个测试类testadd testadd" />
     <MESSAGE value="第二次加入测试类" />
-    <option name="LAST_COMMIT_MESSAGE" value="第二次加入测试类" />
+    <MESSAGE value="idea回滚到测试前" />
+    <option name="LAST_COMMIT_MESSAGE" value="idea回滚到测试前" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1588180999037">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1588180999037" />
-    <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1589463402822">
+    <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1589464065016">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589463402822" />
+    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589464065016" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1589462373112">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -251,14 +261,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="193" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1589463014663" />
+    <state x="129" y="61" key="MergeDialog" timestamp="1589464230127">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="129" y="61" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1589464230127" />
+    <state x="392" y="80" key="MultipleFileMergeDialog" timestamp="1589464230137">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="392" y="80" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1589464230137" />
     <state x="424" y="68" key="VCS.ChangeListViewerDialog" timestamp="1589463825866">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="424" y="68" key="VCS.ChangeListViewerDialog/0.0.1366.728@0.0.1366.728" timestamp="1589463825866" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1589463414141">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1589464076808">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1589463414141" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1589464076808" />
     <state x="239" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588158759485">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
