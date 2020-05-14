@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="589bfdf1-27ae-41a1-a092-d2a15bda26fd" name="Default Changelist" comment="" />
+    <list default="true" id="589bfdf1-27ae-41a1-a092-d2a15bda26fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/server/controller/testadd2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +52,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1bCBzXn9wjyVmqM60pqZuVK7eER" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -128,17 +134,36 @@
       <workItem from="1588812592504" duration="1232000" />
       <workItem from="1588814334264" duration="2053000" />
       <workItem from="1589462821083" duration="194000" />
+      <workItem from="1589463143500" duration="231000" />
     </task>
+    <task id="LOCAL-00001" summary="加入两个测试类testadd testadd">
+      <created>1589463274160</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589463274160</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="加入两个测试类testadd testadd" />
+    <option name="LAST_COMMIT_MESSAGE" value="加入两个测试类testadd testadd" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1588180999037">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1588180999037" />
+    <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1589463272334">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589463272334" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1589462373112">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -175,6 +200,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="193" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1589463014663" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1589463288420">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1589463288420" />
     <state x="239" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588158759485">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
