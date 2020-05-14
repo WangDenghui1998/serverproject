@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用电双向互动平台</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div style="height: 70px;background-color: deepskyblue" align="center">
+    <a style="color: white"><h2 style="font-size: 40px">&nbsp;&nbsp;双向互动服务平台</h2></a>
+    <a href="javascript:logout()">退出登录</a>
+</div>
+<div style="background-color: cadetblue">
+
+    <a href="#" style="color: black">&nbsp;&nbsp;&nbsp;主页</a>
+    <a href="#" style="color: black">&nbsp;&nbsp;&nbsp;日常业务</a>
+    <a href="#" style="color: black">&nbsp;&nbsp;&nbsp;查询与统计</a>
+    <a href="#" style="color: black">&nbsp;&nbsp;&nbsp;系统管理</a>
+
+</div>
+<div align="right" id="thislogin">
+    当前登录：
+</div>
+<div>
+    <input type="button" value="查看" class="btn-xs">&nbsp;&nbsp;&nbsp;
+    <input type="button" value="导出" id="Toexcel" class="btn-xs">
+</div>
+<div id="divsearch">
+    客户名称：<input type="text" id="comname">
+    组织代码：<input type="text" id="teamid">
+    客户编号：<input type="text" id="comid">
+    状态：<select id="selstate">
+    <option>所有</option>
+    <option>有效</option>
+    <option>无效</option>
+</select>
+    <input type="button" value="查询" id="search" class="btn-xs">
+</div>
+
+<table class="table table-hover table-bordered" id="comtable">
+    <thead>
+    <tr>
+        <td>客户名称</td>
+        <td>组织机构代码</td>
+        <td>营业执照号码</td>
+        <td>客户编号</td>
+        <td>地址</td>
+        <td>联系人</td>
+        <td>联系方式</td>
+        <td>状态</td>
+        <td>注册时间</td>
+    </tr>
+
+    </thead>
+    <tbody>
+
+    </tbody>
+
+</table>
+<div id="result" align="center"></div>
+<div id="fenye"></div>
+
+
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="js/jquery.table2excel.min.js"></script>
+<script type="text/javascript">
+
+
+
+    $(function () {
+
+        
+        $("#Toexcel").click(function () {
+            ToExcel();
+        })
+
+        $("#search").click(function () {
+            getcompage(1);
+        })
+        getcompage(1);
+
+        $("#thislogin").append(sessionStorage.getItem("username"));
+
+
+    })
+
+    
+    function ToExcel() {
+
+            $("#comtable").table2excel({
+                exclude: ".noExl",
+                name: "Excel Document Name.xlsx",
+                filename: "公司信息",
+                exclude_img: true,
+                exclude_links: true,
+                exclude_inputs: true
+            });
+
+    }
+
+    function getcompage(pn) {
+
+
+        //var userid=sessionStorage.getItem("userid");
+
+        $.ajax({
+            url:"/getcompage",
+            data:{
+                "pn":pn,
+                "comname":$("#comname").val(),
+                "teamid":$("#teamid").val(),
+                "comid":$("#comid").val(),
+                "province":sessionStorage.getItem("userid"),
+                "state":$("#selstate option:selected").text()=="有效"?1:
+                    $("#selstate option:selected").text()=="无效"?0:2
+            },
+            type:"GET",
+            success:function (result) {
+
+                //console.log(result);
+                if(result.code==100){
+
+                    buildtable(result);
+                    buildfenye(result);
+
+                }else {
+
+                    $("#comtable tbody").empty();
+                    $("#fenye").empty();
+                    $("#result").empty();
+                    $("<h1>没有相关数据</h1>").appendTo("#result");
+
+                }
+
+
+            }
+        })
+
+    }
+    function buildtable(result) {
+
+
+        $("#comtable tbody").empty();
+        $("#fenye").empty();
+        $("#result").empty();
+
+        var comlist=result.extend.pageInfo.list;
+        $.each(comlist,function (index,item) {
+
+            //alert(item.comname);
+
+            var companyTd=$("<td></td>").append(item.comname);
+            var teamidTd=$("<td></td>").append(item.teamid);
+            var busidTd=$("<td></td>").append(item.busid);
+            var comidTd=$("<td></td>").append(item.comid);
+            var adressTd=$("<td></td>").append(item.adress);
+            var userTd=$("<td></td>").append(item.user);
+            var userphoneTd=$("<td></td>").append(item.userphone);
+            var stateTd=$("<td></td>").append(item.state==1?"有效":"无效");
+            var regdateTd=$("<td></td>").append(item.regdate);
+
+            $("<tr></tr>")
+                .append(companyTd)
+                .append(teamidTd)
+                .append(busidTd)
+                .append(comidTd)
+                .append(adressTd)
+                .append(userTd)
+                .append(userphoneTd)
+                .append(stateTd)
+                .append(regdateTd)
+            .appendTo("#comtable tbody");
+
+            $("tr:odd").css("background-color","#9d9d9d");
+
+
+
+        })
+
+        //alert(comlist.length)
+
+        for (var i=comlist.length;i<10;i++){
+            $("<tr></tr>")
+                .append("<td>&zwj;</td>")
+                .append("<td></td>")
+                .append("<td></td>")
+                .append("<td></td>")
+                .append("<td></td>")
+                .append("<td></td>")
+                .append("<td></td>")
+                .append("<td></td>")
+                .append("<td></td>")
+            .appendTo("#comtable tbody")
+
+            $("tr:odd").css("background-color","#9d9d9d");
+        }
+
+
+    }
+
+    function buildfenye(result) {
+
+        $("#fenye").empty();
+        //alert("fenye");
+        var pageInfo=result.extend.pageInfo;
+        $("#fenye").empty();
+        $("#fenye").append("第"+pageInfo.pageNum+"页/共"+pageInfo.pages+"页");
+        $("#fenye").append($("<input type='text' id='topn' size='2px'>"));
+        $("#fenye").append($("<input type='button' id='topagebtn' value='跳转'>"))
+
+
+        $("#topagebtn").click(function () {
+            //alert("topagebtn")
+            var topagenum=$("#topn").val();
+
+            if (topagenum>pageInfo.pages||topagenum<1)
+                alert("请输入正确的页码");
+            else
+                getcompage(topagenum);
+
+        })
+    }
+
+    function logout() {
+        if(confirm("确定要退出吗"))
+            location.href="login.html";
+    }
+
+</script>
+
+</body>
+</html>

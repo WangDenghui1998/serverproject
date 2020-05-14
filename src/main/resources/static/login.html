@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登陆</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .main{
+            width: 600px;
+            background-color: #b5ef64;
+            margin: 20px auto;
+            height: 300px;
+            padding-top: 60px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 18px;
+        }
+        .main form{
+            width: 70%;
+            margin: 20px auto;
+
+        }
+        .main form input{
+            margin: 10px 0;
+
+        }
+        .main form input[type=button]{
+            width: 60px;
+            height: 30px;
+            font-size: 18px;
+        }
+        .main form input[type=text], .main form input[type=password]{
+            width: 200px;
+            height: 25px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <h1>双向互动服务平台</h1>
+    <form action="">
+        姓名&nbsp;&nbsp;&nbsp;<input type="text" id="username"><br/>
+        密码&nbsp;&nbsp;&nbsp;<input type="password" id="password"><br/>
+        <input type="button" value="登录" id="login"/>
+    </form>
+</div>
+
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+
+        $("#login").click(function () {
+
+            if ($("#username").val()=="")
+                alert("请输入用户名");
+            if ($("#password").val()=="")
+                alert("请输入密码");
+
+            if($("#username").val()!=""&&$("#password").val()!=""){
+                $.ajax({
+                    url:"/login",
+                    data:{
+                        "username":$("#username").val(),
+                        "password":$("#password").val()
+                    },
+                    type:"GET",
+                    success:function (result) {
+
+                        //console.log(result)
+
+                        //alert(result.code)
+                        if(result.code==100){
+                            alert("登陆成功！");
+                        sessionStorage.setItem("userid",result.extend.userid);
+                        sessionStorage.setItem("username",result.extend.name)
+                        location.href="index.html";
+                        }else {
+                            alert("登陆失败！");
+                        }
+
+                    }
+                })
+
+            }
+
+        })
+
+    })
+</script>
+
+</body>
+</html>
